@@ -39,7 +39,7 @@ public class Conexion {
     }
     
     //método que realiza la conexion con la base de datos
-    public static Connection getConnection(){
+    public Connection getConnection(){
         Connection cn = null;        
         try {
             Class.forName(DRIVER);            
@@ -48,5 +48,10 @@ public class Conexion {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }       
         return cn;
+    }
+    
+    public static void main(String[] args) {
+        Conexion cn = Conexion.getInstance();
+        Connection con = cn.getConnection();
     }
 }
